@@ -9,7 +9,6 @@ const cn = {
     Unauthorized: isApp
       ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
       : "您好，我是 LB 。目前访问密码不正确或为空，但服务也应该能够正常使用，否则请前往[登录](/#/auth)页输入正确的访问密码。请直接向我询问问题。若欲使用 ChatGPT 而非 RWKV ，请在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
-或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
   },
   Auth: {
     Title: "需要密码",
