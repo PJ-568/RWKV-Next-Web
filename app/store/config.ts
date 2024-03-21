@@ -34,7 +34,7 @@ export const DEFAULT_CONFIG = {
   theme: Theme.Auto as Theme,
   tightBorder: !!getClientConfig()?.isApp,
   sendPreviewBubble: true,
-  enableAutoGenerateTitle: true,
+  enableAutoGenerateTitle: false,
   sidebarWidth: DEFAULT_SIDEBAR_WIDTH,
 
   disablePromptHint: false,
@@ -54,8 +54,8 @@ export const DEFAULT_CONFIG = {
     frequency_penalty: 0,
     sendMemory: true,
     historyMessageCount: 4,
-    compressMessageLengthThreshold: 1000,
-    enableInjectSystemPrompts: true,
+    compressMessageLengthThreshold: 800,
+    enableInjectSystemPrompts: false,
     template: DEFAULT_INPUT_TEMPLATE,
   },
 };
@@ -140,7 +140,7 @@ export const useAppConfig = createPersistStore(
         state.modelConfig.sendMemory = true;
         state.modelConfig.historyMessageCount = 4;
         state.modelConfig.compressMessageLengthThreshold = 1000;
-        state.modelConfig.frequency_penalty = 0;
+        state.modelConfig.frequency_penalty = 0.1;
         state.modelConfig.top_p = 1;
         state.modelConfig.template = DEFAULT_INPUT_TEMPLATE;
         state.dontShowMaskSplashScreen = false;
@@ -152,11 +152,11 @@ export const useAppConfig = createPersistStore(
       }
 
       if (version < 3.6) {
-        state.modelConfig.enableInjectSystemPrompts = true;
+        state.modelConfig.enableInjectSystemPrompts = false;
       }
 
       if (version < 3.7) {
-        state.enableAutoGenerateTitle = true;
+        state.enableAutoGenerateTitle = false;
       }
 
       if (version < 3.8) {
